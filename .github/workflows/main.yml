@@ -33,4 +33,3 @@ jobs:
           python -m SimpleHTTPServer>out &
           cd ..
           npm test
-          pkill -f SimpleHTTPServer

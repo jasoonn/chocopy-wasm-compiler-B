@@ -31,6 +31,10 @@ jobs:
           make
           cd build/
           cd ..
-          chmod u+x test.sh
-          ./test.sh
+          echo "My Test Page" > test.html
+          nohup python3 -m http.server 8000 &> /dev/null &
+          pid=$!
+          sleep 1
+          wget -O - http://0.0.0.0:8000/test.html 2> /dev/null
+          kill "${pid}"
 

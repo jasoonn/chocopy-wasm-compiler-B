@@ -30,6 +30,6 @@ jobs:
           npm install
           make
           cd build/
-          ./test.sh
           cd ..
+          ./test.sh
 

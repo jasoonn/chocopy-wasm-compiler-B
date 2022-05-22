@@ -30,6 +30,6 @@ jobs:
           npm install
           make
           cd build/
-          python -m SimpleHTTPServer 8080 &
+          python -m SimpleHTTPServer 1234 &
           cd ..
-          npm test
+

@@ -30,5 +30,6 @@ jobs:
           npm install
           make
           cd build/
-          nohup python -m SimpleHTTPServer 1234&
+          pip install simple-http-server
+          nohup python3 -m SimpleHTTPServer 1234&
 

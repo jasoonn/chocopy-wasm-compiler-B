@@ -4,7 +4,7 @@
 echo "My Test Page" > test.html
 
 # Start server
-python -m SimpleHTTPServer 8000 &> /dev/null &
+nohup python3 -m http.server 8000 &> /dev/null &
 pid=$!
 
 # Give server time to start up

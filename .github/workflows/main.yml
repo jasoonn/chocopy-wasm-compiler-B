@@ -30,6 +30,7 @@ jobs:
           npm install
           make
           cd build/
-          pip3 install simple-http-server
-          nohup python3 -m http.server 1234&
+          cd ..
+          chmod u+x test.sh
+          ./test.sh
 

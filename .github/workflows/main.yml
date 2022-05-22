@@ -31,5 +31,6 @@ jobs:
           make
           cd build/
           cd ..
+          chmod u+x test.sh
           ./test.sh
 

@@ -3,6 +3,7 @@ import * as webdriver from 'selenium-webdriver';
 import "mocha";
 import { expect } from "chai";
 import { doesNotMatch } from 'assert';
+import {Options} from 'selenium-webdriver/chrome'
 require('chromedriver');
 
 
@@ -44,7 +45,9 @@ describe("PA3 browser tests", () => {
     var driver;
     beforeEach(async function () {
         this.timeout(0);
-        driver = await new webdriver.Builder().forBrowser("chrome").build();
+        const opts = new Options();
+        opts.addArguments('--headless', '--no-sandbox')
+        driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(opts).build();
         await driver.get("http://127.0.0.1:8080/index.html");
         
     });

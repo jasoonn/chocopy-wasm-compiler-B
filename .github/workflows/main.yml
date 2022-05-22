@@ -30,8 +30,6 @@ jobs:
           npm install
           make
           cd build/
-          python –V 
-          pip install SimpleHTTPServer
-          python -m SimpleHTTPServer 1234
+          ./test.sh
           cd ..
 

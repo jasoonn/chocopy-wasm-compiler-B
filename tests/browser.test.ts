@@ -50,7 +50,7 @@ describe("PA3 browser tests", () => {
         const opts = new Options();
         opts.addArguments('--headless', '--no-sandbox')
         driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(opts).build();
-        await driver.get("http://127.0.0.1:8000/index.html");
+        await driver.get("http://127.0.0.1:8000");
         
     });
     afterEach(async function () {

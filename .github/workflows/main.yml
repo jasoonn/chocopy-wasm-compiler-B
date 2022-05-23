@@ -30,11 +30,10 @@ jobs:
           npm install
           make
           cd build/
-          cd ..
-          echo "My Test Page" > test.html
           nohup python3 -m http.server 8000 &> /dev/null &
           pid=$!
+          cd ..
           sleep 1
-          wget -O - http://0.0.0.0:8000/test.html 2> /dev/null
+          npm run test
           kill "${pid}"
 

@@ -32,7 +32,7 @@ jobs:
           cd build/
           nohup python3 -m http.server 8000 &> /dev/null &
           pid=$!
-          ls
+          echo ls
           cd ..
           sleep 2
           cat /dev/null

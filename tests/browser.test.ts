@@ -46,7 +46,7 @@ export async function assertPrint(source: string, expected: Array<string>, drive
 describe("PA3 browser tests", () => {
     var driver;
     beforeEach(async function () {
-        this.timeout(0);
+        //this.timeout(6000);
         const opts = new Options();
         opts.addArguments('--headless', '--no-sandbox')
         driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(opts).build();
@@ -61,6 +61,6 @@ describe("PA3 browser tests", () => {
         await(assertPrint(`
 print(123)
 print(456)`, ["123", "456"], driver));
-    });
+    }).timeout(10000);
 
 });

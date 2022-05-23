@@ -34,6 +34,8 @@ jobs:
           pid=$!
           cd ..
           sleep 2
+          wget -O - http://0.0.0.0:8000/index.html 2> /dev/null
           npm run test
           kill "${pid}"
+
 

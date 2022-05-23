@@ -11,7 +11,7 @@ export async function assertPrint(source: string, expected: Array<string>, drive
     //Show to debug
     //await driver.manage().window().maximize();
     //Send and run user-code
-    await driver.wait(webdriver.until.elementLocated(webdriver.By.id("user-code")));
+    //await driver.wait(webdriver.until.elementLocated(webdriver.By.id("user-code")));
     await driver.findElement(webdriver.By.id("user-code")).sendKeys(source);
     await driver.findElement(webdriver.By.id("run")).click(); 
     //Check output length is equal to expected

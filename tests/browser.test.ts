@@ -11,9 +11,11 @@ export async function assertPrint(source: string, expected: Array<string>, drive
     //Show to debug
     //await driver.manage().window().maximize();
     //Send and run user-code
+    await driver.wait(webdriver.until.elementLocated(webdriver.By.id("user-code")));
     await driver.findElement(webdriver.By.id("user-code")).sendKeys(source);
     await driver.findElement(webdriver.By.id("run")).click(); 
     //Check output length is equal to expected
+    await driver.wait(webdriver.until.elementLocated(webdriver.By.xpath("//*[@id=\"output\"]/pre")));
     let vars = await driver.findElements(webdriver.By.xpath("//*[@id=\"output\"]/pre"));
     expect(vars.length).to.deep.eq(expected.length+1);
     //Retrieve output as array

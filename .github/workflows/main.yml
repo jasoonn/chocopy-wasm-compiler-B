@@ -29,12 +29,12 @@ jobs:
         run: |
           npm install
           make
+          npm run build-web
           cd build/
           nohup python3 -m http.server 8000 &> /dev/null &
           pid=$!
-          echo ls
           cd ..
           sleep 2
-          cat /dev/null
+          npm run test
           kill "${pid}"
 

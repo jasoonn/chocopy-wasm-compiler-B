@@ -33,7 +33,6 @@ jobs:
           nohup python3 -m http.server 8000 &> /dev/null &
           pid=$!
           sleep 2
-          wget -O - http://0.0.0.0:8000/index.html 2> /dev/null
           npm run test
           kill "${pid}"
 

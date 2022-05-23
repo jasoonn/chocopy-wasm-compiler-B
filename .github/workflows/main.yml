@@ -32,8 +32,10 @@ jobs:
           cd build/
           nohup python3 -m http.server 8000 &> /dev/null &
           pid=$!
+          ls
           cd ..
           sleep 2
+          cat /dev/null
           npm run test
           kill "${pid}"
 

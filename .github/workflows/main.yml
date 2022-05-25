@@ -36,5 +36,6 @@ jobs:
           cd ..
           sleep 2
           npm run test
+          npm run test-browser
           kill "${pid}"
 

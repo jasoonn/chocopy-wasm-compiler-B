@@ -47,7 +47,7 @@ export async function assertPrint(name:string, source: string, expected: Array<s
             results.push(await driver.findElement(webdriver.By.xpath(`//*[@id=\"output\"]/pre[${i}]`)).getText());
         }
         expect(results).to.deep.eq(expected);
-    }).timeout(10000);
+    });
 }
 
 export async function assertTCFail(name: string, source: string){
@@ -61,7 +61,7 @@ export async function assertTCFail(name: string, source: string){
         let vars = await driver.findElements(webdriver.By.xpath("//*[@id=\"output\"]/pre"));
         expect(vars.length).to.deep.eq(1);
         expect(await driver.findElement(webdriver.By.xpath(`//*[@id=\"output\"]/pre[${1}]`)).getText()).to.contain("TYPE ERROR:");
-    }).timeout(10000);;
+    });
 }
 
 export async function assertRunTimeFail(name: string, source: string){
@@ -75,7 +75,7 @@ export async function assertRunTimeFail(name: string, source: string){
         let vars = await driver.findElements(webdriver.By.xpath("//*[@id=\"output\"]/pre"));
         expect(vars.length).to.deep.eq(1);
         expect(await driver.findElement(webdriver.By.xpath(`//*[@id=\"output\"]/pre[${1}]`)).getText()).to.contain("RUNTIME ERROR:");
-    }).timeout(10000);;
+    });
 }
 
 
@@ -120,7 +120,7 @@ export async function assertRepr(name: string, source: string, repls: Array<stri
             expect(results).to.deep.eq(expected[i+1]);
         }
         
-    }).timeout(10000);;
+    });
 }
 
 

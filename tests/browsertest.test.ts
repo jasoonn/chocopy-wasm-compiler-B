@@ -12,6 +12,11 @@ export async function assertPrint(source: string, expected: Array<string>, drive
     //await driver.manage().window().maximize();
     //Send and run user-code
     //await driver.wait(webdriver.until.elementLocated(webdriver.By.id("user-code")));
+
+    const opts = new Options();
+    opts.addArguments('--headless', '--no-sandbox')
+    driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(opts).build();
+    await driver.get("http://127.0.0.1:8000");
     await driver.findElement(webdriver.By.id("user-code")).sendKeys(source);
     await driver.findElement(webdriver.By.id("run")).click(); 
     //Check output length is equal to expected
@@ -45,17 +50,17 @@ export async function assertPrint(source: string, expected: Array<string>, drive
 
 describe("PA3 browser tests", () => {
     var driver;
-    beforeEach(async function () {
-        //this.timeout(6000);
-        const opts = new Options();
-        opts.addArguments('--headless', '--no-sandbox')
-        driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(opts).build();
-        await driver.get("http://127.0.0.1:8000");
+    // beforeEach(async function () {
+    //     //this.timeout(6000);
+    //     const opts = new Options();
+    //     opts.addArguments('--headless', '--no-sandbox')
+    //     driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(opts).build();
+    //     await driver.get("http://127.0.0.1:8000");
         
-    });
-    afterEach(async function () {
-        await driver.quit();
-    });
+    // });
+    // after(async function () {
+    //     await driver.quit();
+    // });
 
     it('Simple testing', async function () {
         await(assertPrint(`
